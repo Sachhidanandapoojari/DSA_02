@@ -575,6 +575,252 @@ print("H12344".istitle())
 
 
 
+# Strip Methods
+
+s="    Hello    "
+print(s.strip())
+print(s.rstrip())
+print(s.lstrip())
+
+s="Hello world"
+print(s.strip())
+
+words=s.split()
+print("".join(words))
+
+s="#######Hello world#####"
+print(s.strip("#"))
+print(s.strip("#H"))
+print(s.strip("#d"))
+
+#replace method
+s="Hello world Hello"
+print(s.replace("Hello","Hi"))
+print(s.replace("Hello","Hi",1))
+
+#split method
+s="Hello, world, Hey"
+print(s.split(","))
+print("a,b,c".split(","))
+print("a,,b,,c".split(","))
+print("a b c".split())
+print("a b c".split(" ",1)) #split only one space
+
+# rsplit (split from right)
+print("a b c".rsplit(" ",1))
+
+world="Hello world" #join only work with string 
+w=world.split()
+print("".join(w))
+
+s=['a','b','c']
+print("".join(s))
+
+n=[1,2,3,4,5]
+print("".join(str(num) for num in n))
+
+# Alignment & Padding Methods
+s="hello"
+print(s.center(11))
+print(s.center(15,"-"))
+print(s.ljust(10))
+print(s.rjust(10))
+print(s.zfill(11))
+
+#partition
+s="HEllo world"
+print(s.partition(" "))
+
+print(s.partition("x"))
+
+
+#string interned
+
+a="hello"
+b="hello"
+print(a==b)
+print(a is b)
+
+a="helloooooooooooooooooooooooooooooooo"
+b="helloooooooooooooooooooooooooooooooo"
+print(a is b)
+
+a=256
+b=256
+print(a is b)
+print(a==b)
+
+a=257
+b=257
+print(a is b)
+
+a=1000
+b=1000
+print(a is b)
+
+#has space - not interned
+a="hello world"
+b="hello world"
+print(a is b)
+
+#has special char not interned
+a="hello@123"
+b="hello@123"
+print(a is b)
+
+import sys
+a=sys.intern("hello world")
+b=sys.intern("hello world")
+print(a is b)
+
+a="Hey this is"
+b="Hey this is"
+print(a is b)
+
+
+# String as Sequence
+s="Python"
+print(len(s))
+
+#Iteration
+for ch in s:
+    print(ch,end=" ")
+print()
+#enumerate the value
+st_value="Python"
+for i,ch in enumerate(st_value):
+    print(i,ch)
+    
+#basic for loop
+
+for i in range(5):
+    print(i)
+    
+#list of value
+list_value=["apple","banana","orange"]
+for fruit in list_value:
+    print(fruit)
+
+for i in range(len(list_value)):
+    print(list_value[i],end=" ")
+print()  
+# 3. For Loop with String
+s="Hey"
+for ch in s:
+    print(ch,end=" ")
+print()
+fruits=["apple","banana","mango"]
+for i,fruit in enumerate(fruits):
+    print(i,fruit)
+
+#for loop with range
+for i in range(0,10,2):
+    print(i,end=" ")
+print()
+for i in range(10,0,-1):
+    print(i,end=" ")
+
+print()
+# For Loop with Dictionary
+person={"name":"sachin","age":25}
+for key in person:
+    print(key,end=" ")
+# for k,v in person.items():
+#     print(k,v,end=" ")
+
+print()
+for key in person:
+    print(key,end=" ")
+print()
+for key,value in person.items():
+    print(key,value,end=" ")
+print()    
+for value in person.items():
+    print(value,end=" ")
+
+print()
+for key in person.keys():
+    print(key,end=" ")
+print()
+for values in person.values():
+    print(values,end=" ")
+print()
+for key,values in person.items():
+    print(key,values,end=" ")
+print()    
+    
+#nested for loop
+for i in range(3):
+    for j in range(3):
+        print(i,j)
+
+#for loop with zip() -2 list write together
+names=["alen","bob","kummu"]
+ages=[12,22,22]
+for name,age in zip(names,ages):
+    print(name,age,end=" ")
+
+#list comprehension one line for loop
+
+square=[]
+for i in range(5):
+    square.append(i**2)
+print(square)
+
+square=[i**2 for i in range(5)]
+print(square)
+
+
+#for loop with break and continue
+for i in range(5):
+    if i==5:
+        break
+    print(i)
+print()
+# continue — skip current iteration
+for i in range(5):
+    if i==3:
+        continue
+    print(i)
+
+def add(a,b):
+    return a+b
+print(add(10,20))
+
+add=lambda a,b: a+b
+print(add(2,3))
+
+#lambda with map() map with each element
+number=[1,2,3,4,5]
+res=list(map(lambda x:x**2,number))
+print(res)
+
+#lambda with reduce() accumulate 1 2 3 4 5 = 15
+from functools import reduce
+num=[1,2,3,4,5]
+res=reduce(lambda x,y: x+y,num)
+print(res)
+
+#lambda with condition if/else 
+check=lambda x: "even" if x%2==0 else "odd"
+print(check(2))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
