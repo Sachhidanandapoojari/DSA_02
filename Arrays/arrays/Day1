@@ -1,0 +1,1577 @@
+# import array as arr
+from array import *
+
+val=array('i',[1,2,3,4,5,34,55,67])
+print(type(val))
+
+for i in range(0,4):
+    print(val[i],end=" ")
+print()
+
+for x in val:  # array dynamically change here size
+    print(x, end=" ")  
+print('\n')
+
+print(val.typecode)
+
+value=array('d',[1,2,3,4,5,6,7,9,90.0])
+print(value,end=" ")
+
+print('\n')
+value.reverse()
+print(value,end=" ")
+print('\n')
+arr_val = array('i',[1,2,3,4,5,6,7,8])
+copy_arr=array(arr_val.typecode,(x for x in arr_val))
+# print(copy_arr)
+for i in range(0,len(arr_val)):
+    print(copy_arr[i],end=" ")
+print('\n')
+arr_val.pop(2)
+print(arr_val)
+arr_val.pop()
+print(arr_val)
+arr_val.remove(5)
+print(arr_val)
+
+
+#slicing
+array_value=array('i',[12,23,4,5,6,76,87])
+print(array_value[:4])
+print(array_value[:-5])
+print(array_value[::-1])
+print(array_value[3:5])
+print(array_value[2:])
+print(array_value[:2])
+print(array_value[3:-1])
+print(array_value[3:6])
+
+# array_val1=array('i',[])
+# n=int(input('Enter the size of the array'))
+# for i in range(1,n):
+#     array_val1.append(int(input('enter a arr')))
+# for x in array_val1:
+#     print(x,end=" ")
+    
+    
+#reverse an array
+arr=[1,2,3,4,5,6]
+# print(arr[::-1])
+for i in range(-1,-len(arr)-1,-1):
+    print(arr[i],end=" ")
+    
+def rev_array(arr):
+    left=0
+    right=len(arr)-1
+    while left<right:
+        arr[left],arr[right]=arr[right],arr[left]
+        left+=1
+        right-=1
+    return arr
+res=rev_array([1,2,3,6,7,8])
+print(res)
+        
+s="We promptly judged antique ivory buckles for the next prize" 
+s1=s.lower()
+letter=set()
+for ch in s1:
+    if 'a'<=ch<='z':
+        letter.add(ch)
+if len(letter)==26:
+    print("panagram")
+else:
+    print("not a panagram")
+    
+sent="We promptly judged antique ivory buckles for the next prize"
+s1=sent.lower()
+print(s1)
+    
+str_value="Sachin poojari "
+res=str_value.strip().lower().replace(" ","")
+print(res)
+
+# s1=input().strip().replace(" ","").lower()
+# s2=input().strip().replace(" ","").lower()
+
+# if len(s1)!=len(s2):
+#     print("not a anagram")
+# else:
+#     freq1={}
+#     freq2={}
+#     for ch in s1:
+#         freq1[ch]=freq1.get(ch,0)+1
+#     for ch in s2:
+#         freq2[ch]=freq2.get(ch,0)+1
+#     if freq1 == freq2:
+#         print("anagram")
+#     else:
+#         print("not a anagram")
+
+#reverse word 
+#s = "the sky is blue"
+# "blue is sky the"
+s="the sky is blue"
+words=s.split()
+words.reverse()
+print(" ".join(words))
+# print(" ".join(words[::-1]))
+
+s = "Hello World"
+words=s.strip().split()
+print(len(words[-1]))
+
+#extract a digit given in integer
+
+# num = 123456
+# n=num
+# while n>0:
+#     last_digit=n%10
+#     print(last_digit,end=" ")
+#     n//=10
+
+# num = 1234580
+# n=num
+# count=0
+# while n>0:
+#     last_digit=n%10
+#     count+=1
+#     n//=10
+# print(count)
+    
+#check palindrome
+
+# num= 121
+# n=num
+# rev=0
+# while n>0:
+#     r=n%10
+#     rev=(rev*10)+r
+#     n//=10
+# if rev==num:
+#     print("palindrome")
+# else:
+#     print("not")
+
+num=121
+n=num
+rev=0
+while n>0:
+    r=n%10
+    rev=(rev*10)+r
+    n//=10
+if rev==num:
+    print("palindrome")
+else:
+    print("not")
+#find the palindrome    
+st="madam"
+s=list(st)
+l=0
+r=len(s)-1
+while l<r:
+    s[r],s[r]=s[l],s[r]
+    l+=1
+    r-=1
+print("".join(s))
+
+
+#check armstrong number
+
+num=153
+n=num
+lod=len(str(n))
+total=0
+while n>0:
+    r=n%10
+    total=total+(r**lod)
+    n//=10
+print(total)
+    
+#print factors of all the given num using brute force
+
+num=20
+ans=[]
+for i in range(1,num+1):
+    if num%i==0:
+        ans.append(i)
+print(ans)
+
+num=10
+ans=[]
+for i in range(1,(num//2)+1):
+    if num%i==0:
+        ans.append(i)
+ans.append(num)
+print(ans)
+
+
+#Sort an array using insertion sort
+# def insertionSort(nums):
+#     n=len(nums)
+
+#     for i in range(1,n):
+#         key=nums[i]
+#         j=i-1
+#         while j>=0 and nums[j]>key:
+#             nums[j+1]=nums[j]
+#             j-=1
+#         nums[j+1]=key
+#     return nums
+# res=insertionSort([3,2,8,1,7,6,4])
+# print(res)
+
+        
+
+#Selection sort
+
+# def SelectionSort(num):
+#     n=len(num)
+    
+#     for i in range(n):
+#         mn=num[i]
+#         ind=i
+#         for j in range(i+1,n):
+#             if num[j]<mn:
+#                 mn=num[j]
+#                 ind=j
+#         temp=num[i]
+#         num[i]=num[ind]
+#         num[ind]=temp
+    
+#     return num
+# res=SelectionSort([5,2,8,9,3,7,4])
+# print(res)
+
+# def selection_sort(nums):
+#     for i in range(1,len(nums)):
+#         min_val=nums[i]
+#         indx=i
+#         for j in range(i+1,len(nums)):
+#             if nums[j]<min_val:
+#                 min=nums[j]
+#                 indx=j
+                
+#         temp=nums[i]
+#         nums[i]=nums[indx]
+#         nums[index]=temp
+#     return nums
+# res=selection_sort([3,2,5,6,7,4,1])
+# print(res)
+
+
+        
+            
+
+
+#Selectionsort
+# def SelectionSort(num):
+#     n=len(num)
+    
+#     for i in range(n):
+#         min=num[i]
+#         ind=i
+#         for j in range(i+1,n):
+#             if num[j]<min:
+#                 min=num[j]
+#                 ind=j
+                
+#         temp=num[i]
+#         num[i]=num[ind]
+#         num[ind]=temp
+#     return num
+# res=SelectionSort([5,2,8,9,3,7,4])
+# print(res)
+
+
+
+#get factor of the given num
+from math import sqrt
+num=36
+n=num
+res=[]
+for i in range(1,int(sqrt(n))+1):
+    if n%i==0:
+        res.append(i)
+    if n//i!=i:
+        res.append(n//i)
+    res.sort()
+print(res)
+
+
+#merge sort
+class Solution:
+    def merge(self,nums,l,mid,r):
+        a = []
+        b = []
+        for i in range(l,mid+1):
+            a.append(nums[i])
+        for i in range(mid+1,r+1):
+            b.append(nums[i])
+        
+        i,j,k=0,0,l
+        while k<=r:
+            if j==len(b):
+                nums[k]=a[i]
+                i+=1
+                k+=1
+            elif i==len(a):
+                nums[k]=b[j]
+                j+=1
+                k+=1
+            elif a[i]<b[j]:
+                nums[k]=a[i]
+                i+=1
+                k+=1
+            else:
+                nums[k]=b[j]
+                j+=1
+                k+=1
+        
+        
+    def mergeSort(self,nums,l,r):
+        if l>=r:
+            return
+        mid=(l+r)//2
+        self.mergeSort(nums,l,mid)
+        self.mergeSort(nums,mid+1,r)
+        
+        self.merge(nums,l,mid,r)
+    
+nums = [5, 2, 8, 9, 3, 7, 4]
+
+s = Solution()
+s.mergeSort(nums, 0, len(nums) - 1)
+
+print(nums)
+
+
+class Merge_sort_solution:
+    def merge(self,nums,l,mid,r):
+        a=[]
+        b=[]
+        for i in range(l,mid+1):
+            a.append(nums[i])
+        for i in range(mid+1,r):
+            b.append(nums[i])
+        
+        i,j,k=0,0,l
+        while k<=r:
+            if j==len(b):
+                nums[k]=a[i]
+                i+=1
+                k+=1
+            elif i==len(a):
+                nums[k]=b[i]
+                j+=1
+                k+=1
+            elif a[i]<b[j]:
+                nums[k]=a[i]
+                i+=1
+                k+=1
+            else:
+                nums[k]=b[j]
+                j+=1
+                k+=1
+                
+    def merge_sort(self,nums,l,r):
+        if l<=r:
+            return 
+        mid=(l+r)//2
+        self.merge_sort(nums,l,mid)
+        self.merge_sort(nums,mid+1,r)
+        
+        self.merge(nums,l,mid,r)
+        
+nums=[5, 2, 8, 9, 3, 7, 4]
+m=Merge_sort_solution()
+m.merge_sort(nums,l,len(nums)-1)
+print(nums)
+
+#store frequency in dict
+
+nums=[5,6,7,7,1,9,1,1,5]
+freq={}
+for arr in nums:
+    if arr not in freq:
+        freq[arr]=1
+    else:
+        freq[arr]+=1
+print(freq)
+        
+a=10
+b=20
+temp=a
+a=b
+b=temp
+print(a,b)
+    
+#Quick sort
+class QuickSort:
+    def partition(self,num,l,r):
+        #write the swapping tech
+        start=l
+        key=num[r]       
+        for i in range(l,r+1):
+            if num[i]<=key:
+                temp=num[i]
+                num[i]=num[start]
+                num[start]=temp
+                start+=1
+        return start-1         
+        
+    def quickSort(self,num,l,r):
+        if l>=r:
+            return
+        p=self.partition(num,l,r)
+        
+        self.quickSort(num,l,p-1)
+        self.quickSort(num,p+1,r)
+q=QuickSort()
+num=[7,2,8,1,3,6,4]
+q.quickSort(num,0,len(num)-1)
+print(num)
+        
+
+a=100
+b=200
+# a=b
+# b=a
+
+# a,b=b,a
+
+temp=a
+a=b
+b=temp
+print(a,b)
+
+
+class LinearSearch:
+    def Search(self,nums,target):
+        for i in range(len(nums)):
+            if nums[i]==target:
+                return i
+        return -1
+obj=LinearSearch()
+nums=[-1,0,3,5,9,12]
+target=9
+obj.Search(nums,target)
+print(obj.Search(nums,target))
+
+# class LinearSearch:
+#     def Search(self,nums,target):
+#         for i in range(len(nums)):
+#             if nums[i]==target:
+#                 return i
+#         return -1
+    
+
+# arr=list(map(int,input('Enter the array').split()))
+# for num in arr:
+#     print(num,end=" ")
+    
+# Remove duplicates from a list
+# Input: [1,1,2,2,3]
+print()
+arr=[1,1,2,2,3]
+res=[]
+seen=set()
+for num in arr:
+    if num not in seen:
+        res.append(num)
+        seen.add(num)
+print(res)
+
+#remove duplicate from the list
+arr=[1,2,2,3,4,4,5]
+res=[]
+seen=set()
+res=[]
+for num in arr:
+    if num not in seen:
+        res.append(num)
+        seen.add(num)
+print(res)
+
+
+#frequency of the array in dictionary
+
+arr=[5,6,6,7,8,9,4,5,6,2]
+freq={}
+for num in arr:
+    if num in freq:
+        freq[num]+=1
+    else:
+        freq[num]=1
+print(freq)
+
+freq={}
+for num in arr:
+    freq[num]=freq.get(num,0)+1
+print(freq)
+        
+nums=[2,3,4,3,5,6,7]
+freq={}
+for i in range(0,len(nums)):
+    freq[nums[i]]=freq.get(nums[i],0)+1
+print(freq)
+
+nums=[2,3,4,3,5,6,7]
+freq={}
+for i in range(len(nums)):
+    freq[nums[i]]=freq.get(nums[i],0)+1
+print(freq)
+num1=[1,2,3,4,5,6,7,8]
+num2=[1,2,3,4,5,6,9,8]
+
+for i in num2:
+    count=0
+    for j in num1:
+        if j==i:
+            count+=1
+    print(count,end=" ")
+print()
+
+#using hashing i can store pre index value    character hashing 
+s="axyyyzabzaz"
+q=['d','a','b','z']
+hash_list=[0]*26
+for ch in s:
+    ascii_val=ord(ch)
+    index=ascii_val-97
+    hash_list[index]+=1
+print(hash_list)
+for ch in q:
+    ascii_val=ord(ch)
+    index=ascii_val-97
+    print(hash_list[index],end=" ")
+print()
+
+
+#Recursion
+
+# def fun(x,n):
+#     if n==0:
+#         return
+#     print(x)
+#     fun(x,n-1)
+    
+# fun(15,3)
+
+# #head recursion
+# def fun(i,n):
+#     if i>n:
+#         return
+#     print(i,end=" ")
+#     fun(i+1,n)
+# print()  
+# fun(1,4)
+# print()
+
+# # #tail 
+# def fun(i,n):
+#     if i>n:
+#         return
+#     fun(i+1,n)
+#     print(i)
+# fun(1,3)
+# print()
+# #n->1
+# def fun(n):
+#     if n==0:
+#         return
+#     print(n)
+#     fun(n-1)
+# fun(5)
+# print()
+
+#1->n Head
+def fun(i,n):
+    if i>n:
+        return
+    print(i,end=" ")
+    fun(i+1,n)
+fun(1,5)
+print()
+
+#1->n tail
+def fun(i,n):
+    if i>n:
+        return
+    fun(i+1,n)
+    print(i,end=" ")
+fun(1,5)
+print()
+#n->1 head
+def fun(n):
+    if n==0:
+        return
+    print(n,end=" ")
+    fun(n-1)
+fun(5)
+print()
+
+#n->1 tail
+def fun(n,i):
+    if n>i:
+        return
+    fun(n-1,i)
+    print(n,i)
+fun(5,1)
+print()
+
+def sum_n(i,n,sum=0):
+    if i>n:
+        print(sum)
+        return
+    sum_n(i+1,n,sum+i)
+sum_n(1,10)
+print()
+
+def sum_n(n):
+    if n==1:
+        return 1
+    return n+sum_n(n-1)
+res=sum_n(4)
+print(res)
+
+def fact(n):
+    if n==0:
+        return 1
+    return n*fact(n-1)
+res=fact(5)
+print(res)
+
+num=[5,4,3,6,7,8,9,1]
+n=len(num)
+for i in range(-1,-(n-1),-1):
+    print(num[i],end=" ")
+    
+num=[5,4,3,6,7,8,9,1]
+for nums in num:
+    print(str(nums)[::-1])
+
+num=[5,4,3,6,7,8,9,1]
+for nums in reversed(num):
+    print(nums,end=" ")
+    
+print()
+num.reverse()
+print(num)   
+
+def reverse_array(nums,left,right):
+    if left>=right:
+        return nums
+    nums[left],nums[right]=nums[right],nums[left]
+    return reverse_array(nums,left+1,right-1)
+nums=[1,2,3,4,5]
+print(reverse_array(nums,0,len(nums)-1))
+
+arr=[1,2,3,4,5,6]
+for i in range(len(arr)-1,-1,-1):
+    print(arr[i],end=" ")
+
+s="NITIN"
+l=0
+r=len(s)-1
+is_Palindrome=True
+while l<=r:
+    if s[l]!=s[r]:
+        is_Palindrome=False
+        break
+    l+=1
+    r-=1
+if is_Palindrome:
+    print("Palindrome")
+else:
+    print("not palindrome")     
+
+    
+s="Nitin".lower()
+print(str(s))
+
+# s="Nitin".lower()
+
+
+def is_Palindrome(s,l,r):
+    if l>=r:
+        return True
+    if s[l]!=s[r]:
+        return False
+    return is_Palindrome(s,l+1,r-1)
+print("palindrome" if is_Palindrome(s,0,len(s)-1) else "Not Palindrome")
+
+# def is_palindrome(s,l,r):
+#     if l<=r:
+#         return True
+#     if s[l]!=s[r]:
+#         return False
+#     return is_Palindrome(s,l+1,r-1)
+# print("palindrome" if is_Palindrome(s,0,len(s)-1) else "Not palindrome")
+
+def fun(n):
+    if n==0 or n==1:
+        return n
+    return fun(n-1)+fun(n-2)
+print(fun(15))
+
+#selection sort
+def selection_sorting(num):
+    n=len(num)
+    for i in range(n-1):
+        min_idx=i
+        for j in range(i+1,n):
+            if num[j]<num[min_idx]:
+                min_idx=j
+        temp=num[min_idx]
+        num[min_idx]=num[i]
+        num[i]=temp
+    return num
+    
+
+
+num=[5,7,8,4,1,6,9,2]
+print(selection_sorting(num))
+
+
+#Bubble sort
+def bubble_sort(num):
+    n=len(num)
+    for i in range(n-2,-1,-1):
+        for j in range(0,i+1):
+            if num[j]>num[j+1]:
+                temp=num[j]
+                num[j]=num[j+1]
+                num[j+1]=temp
+    return num
+    
+num=[1,7,4,6,9,8]
+print(bubble_sort(num))
+
+
+#insertion sort
+def insertion_sort(nums):
+    n=len(nums)
+    for i in range(1,n):
+        key=nums[i]
+        j=i-1
+        while j>=0 and nums[j]>key:
+            nums[j+1]=nums[j]
+            j-=1
+        nums[j+1]=key
+    return nums
+res=insertion_sort(nums=[3,5,6,6,8,9,1])
+print(res)
+
+# #find the largest element
+# arr=[2,3,4,5,7,12,9]
+# max=arr[0]
+# for num in arr:
+#     if num>max:
+#         max=num
+# print(max)
+
+#find the second largest
+# arr=[2,3,4,5,7,12,9]
+# max=arr[0]
+# sec_max=float('-inf')
+# for num in arr:
+#     if num>max:
+#         sec_max=max
+#         max=num
+#     elif num>sec_max and num!=max:
+#         sec_max=num
+# print(sec_max)
+
+#merge sort 
+def merge_sort(num):
+    if len(num)<=1:
+        return num
+    # n=len(num)
+    l=0
+    r=len(num)-1
+    mid=(l+r)//2
+    left_half=num[l:mid+1]
+    right_half=num[mid+1:r+1]
+    
+    left_half=merge_sort(left_half)
+    right_half=merge_sort(right_half)
+    
+    return merge(left_half,right_half)
+
+def merge(left_half,right_half):
+    i,j=0,0
+    res=[]
+    
+    while i<len(left_half) and j<len(right_half):
+        if left_half[i]<right_half[j]:
+            res.append(left_half[i])
+            i+=1
+        else:
+            res.append(right_half[j])
+            j+=1
+        
+    res.extend(left_half[i:])
+    res.extend(right_half[j:])
+    return res
+my_list=[10,8,6,5,2,1,9,7]
+sorted_list=merge_sort(my_list)
+print(sorted_list)
+
+def merge_sort(nums):
+    n=len(nums)
+    if n<=1:
+        return num
+    l=0
+    r=n-1
+    mid=(l+r)//2
+    left_half=nums[l:mid+1]
+    right_half=nums[mid+1,r+1]
+    
+    left_half=merge_sort(left_half)
+    right_half=merge_sort(right_half)
+    
+    return merge(left_half,right_half)
+
+def merge(left_half,right_half):
+    i,j=0,0
+    res=[]
+    while i<len(left_half) and j<len(right_half):
+        if left_half[i]<right_half[j]:
+            res.append(left_half[i])
+            i+=1
+        else:
+            res.append(right_half[j])
+            j+=1
+    res.extend(left_half[i:])
+    res.append(right_half[j:])
+    return res
+    
+my_list=[10,8,6,5,2,1,9,7]
+merge_sort(my_list)        
+
+def partition(nums,low,high):
+    pivot=nums[low]
+    i=low+1
+    j=high
+    while True:
+        while nums[i]<=pivot and i<=high:
+            i+=1
+        while nums[j]>=pivot:
+            j-=1
+        # if i<j:
+        if i >= j:
+            break
+        nums[i],nums[j]=nums[j],nums[i]
+    nums[low],nums[j]=nums[j],nums[low] 
+    
+    return j    
+    
+
+def quickSort(nums,low,high):
+    if low<high:
+        p=partition(nums,low,high)
+        quickSort(nums,low,p-1)
+        quickSort(nums,p+1,high) 
+nums=[4, 1, 7, 6, 3, 2, 8]   
+quickSort(nums, 0, len(nums) - 1)
+print(nums)
+
+
+
+def Solution(arr):
+    n=len(arr)
+    for i in range(0,n-1):
+        if arr[i]>arr[i+1]:
+            return False
+    return True
+arr=[1,2,3,4,5,6,7,8,9]
+obj=Solution(arr)
+print(obj)
+
+
+def Solution(arr):
+    n=len(arr)
+    res=set()
+    for i in range(0,n):
+        res.add(arr[i])
+    return res
+arr=[1,2,3,4,5,6,7,8,9]
+obj=Solution(arr)
+print(obj)
+
+#Rotate an array by one place 
+arr=[7,5,6,2,3,4]
+n=len(arr)
+arr[:]=[arr[-1]]+arr[0:n-1]
+print(arr)
+
+arr=[1,2,3,4,5,6,7]
+n=len(arr)
+temp=arr[n-1]
+for i in range(n-2,0,-1):
+    arr[i+1]=arr[i]
+arr[0]=temp
+print(arr)
+
+arr=[1,2,3,4,5,6,7]
+k=3
+rotation=k%n
+for _ in range(0,rotation+1):
+    e=arr.pop()
+    arr.insert(0,e)
+print(arr)
+
+arr=[2,3,4,5,6,7,8,9]
+k=7
+rotation=k%n
+for _ in range(0,rotation+1):
+    e=arr.pop()
+    arr.insert(0,e)
+print(arr)
+
+arr=[3,9,5,6,7,2,10,9]
+k=3
+rotate=k%n
+for _ in range(0,rotate):
+    e=arr.pop()
+    arr.insert(0,e)
+print(arr)
+
+#slicing
+num=[3,9,5,6,7,2,10,9]
+n=len(num)
+k=5
+rot=k%n
+num[:]=num[n-rot:]+num[:n-rot]
+print(num)
+
+#move zero to the end of the array
+nums=[1,0,2,4,3,0,0,3,5,1]
+temp=[]
+for i in range(0,len(nums)):
+    if nums[i]!=0:
+        temp.append(nums[i])
+for i in range(0,len(temp)):
+    nums[i]=temp[i]
+for i in range(len(temp),len(nums)):
+    nums[i]=0
+print(nums)
+
+#linear search
+def linear_search(nums,target):
+    for i in range(0,len(nums)):
+        if nums[i]==target:
+            return i
+    return -1
+nums=[1,0,2,4,3,0,0,3,5,1]
+target=4
+res=linear_search(nums,target)
+print(res)
+
+
+def linear_search(nums,target):
+    for i, num in enumerate(nums):
+        if num==target:
+            return i 
+nums=[1,0,2,4,3,0,0,3,5,1]
+target=4
+res=linear_search(nums,target)
+print(res)
+
+#merge 2 sorted array
+nums1=[1,0,2,4,3,0,0,3,5,1]
+nums2=[2,3,4,5,1,6,7,0,8,9]
+res1=sorted(nums1)
+res2=sorted(nums2)
+print(res1+res2)
+
+#find duplicate element 
+def find_duplicate(nums):
+    nums.sort()
+    duplicate=[]
+    for i in range(1,len(nums)):
+        if nums[i]==nums[i-1] and nums[i] not in duplicate:
+            duplicate.append(nums[i])
+    return duplicate
+
+nums=[1,0,2,4,3,0,0,3,5,1]
+print(find_duplicate(nums))
+
+
+def find_unique(nums):
+    nums.sort()
+    unique=[]
+    for i in range(len(nums)):
+        if nums[i]!=nums[i-1] and nums[i] not in unique:
+            unique.append(nums[i])
+    return unique
+nums=[1,0,2,4,3,0,0,3,5,1]
+print(find_unique(nums))
+
+# def find_duplicate(nums):
+#     nums.sort()
+#     n=len(nums)
+#     duplicate=[]
+#     for i in range(n):
+#         if nums[i]==nums[i-1] and nums[i] not in duplicate:
+#             duplicate.append(nums[i])
+#     return duplicate
+# nums=[1,0,2,4,3,0,0,3,5,1]
+# print(find_duplicate(nums))
+
+# def unique_find(nums):
+#     nums.sort()
+#     n=len(nums)
+#     unique=[]
+#     for i in range(0,n):
+#         if nums[i]!=nums[i-1] and nums[i] not in unique:
+#             unique.append(nums[i])
+#     return unique
+
+
+
+def merge_sort_array(arr1,arr2):
+    arr1.sort()
+    arr2.sort()
+    i,j=0,0
+    merged=[]
+    while i<len(arr1) and j<len(arr2):
+        if arr1[i]<arr2[j] and arr1[i] not in merged:
+            merged.append(arr1[i])
+            i+=1
+        else:
+            merged.append(arr2[j])
+            j+=1
+    merged.extend(arr1[i:])
+    merged.extend(arr2[j:])
+    return merged
+    
+arr1=[1,2,4,8,6]
+arr2=[3,7,5,9,0]
+print(merge_sort_array(arr1,arr2))
+
+def merge_sorted_arrays(arr1,arr2):
+    arr1.sort()
+    arr2.sort()
+    merged=[]
+    i,j=0,0
+    while i<len(arr1) and j<len(arr2):
+        if arr1[i]<arr2[j] and arr1[i] not in merged:
+            merged.append(arr1[i])
+        else:
+            merged.append(arr2[j])
+    merged.extend[i:]
+    merged.extend[j:]
+arr1=[1,2,5,3,6]
+arr2=[4,8,7,9,0]
+res=merge_sorted_arrays(arr1,arr2)
+print(res)
+
+
+
+#if duplicate are given in the array
+
+def merge_sort_array(arr1,arr2):
+    arr1.sort()
+    arr2.sort()
+    i,j=0,0
+    merged=[]
+    while i<len(arr1) and j<len(arr2):
+        if arr1[i]<arr2[j]:
+            if not merged or merged[-1]!=arr1[i]:
+                merged.append(arr1[i])
+            i+=1
+        elif arr1[i]>arr2[j]:
+            if not merged or merged[-1]!=arr2[j]:
+                merged.append(arr2[j])
+            j+=1
+        else: #arr[i]==arr[j]
+            if not merged or merged[-1]!=arr1[i]:
+                merged.append(arr1[i])
+                i+=1
+                j+=1
+    while i<len(arr1):
+        if not merged or merged[-1]!=arr1[i]:
+            merged.append(arr1[i])
+        i+=1
+    while j<len(arr2):
+        if not merged or merged[-1]!=arr2[j]:
+            merged.append(arr2[j])
+        j+=1
+    return merged
+
+arr1=[1,2,4,8,6]
+arr2=[3,7,8,9,0] 
+print(merge_sort_array(arr1,arr2))
+
+# sum=0
+# for i in range(3,32,2):
+#     sum+=i
+# print(sum)
+    
+
+def max_consecutive(nums):
+    count = 0
+    max_count = 0
+
+    for i in range(len(nums)):
+        if nums[i] == 1:
+            count += 1
+        else:
+            max_count = max(max_count, count)
+            count = 0
+    return max(max_count, count)
+
+nums = [1,1,0,1,0,1,0,1,1,1,1,0,1,1,0]
+res=max_consecutive(nums)
+print(res)
+
+#Two sum
+def two_sum(nums,target):
+    for i in range(0,len(nums)-1):
+        for j in range(i+1,len(nums)):
+            if nums[i]+nums[j]==target:
+                return [i,j]   
+    
+nums=[1,2,3,4,5,6,7,8,9]
+target=9
+print(two_sum(nums,target))
+
+#find the max sub array sum 
+def max_sub_array(nums):
+    max_sub_nums=float("-inf")
+    for i in range(0,len(nums)):
+        total=0
+        for j in range(i,len(nums)):
+            total=total+nums[j]
+            max_sub_nums=max(max_sub_nums,total)
+    return max_sub_nums
+    
+nums=[-2,1,-3,4,-1,2,1,-5,4]
+print(max_sub_array(nums))
+
+num1,num2=10,20
+print(max(num1,num2))
+
+def max_sub_array(nums):
+    total=0
+    maxi=float("-inf")
+    for i in range(len(nums)):
+        total=total+nums[i]
+        maxi=max(maxi,total)
+        if total<0:
+            total=0
+    return maxi
+    
+    
+nums=[-2,1,-3,4,-1,2,1,-5,4]
+print(max_sub_array(nums))
+
+#Rearrange the array 
+def rearrange_the_array(nums):
+    pos=[1,4,2]
+    neg=[-2,-3,-1]
+    for i in range(len(pos)):
+        nums[2*i]=pos[i]
+        nums[2*i+1]=neg[i]
+    return nums
+
+nums=[-2,1,-3,4,-1,2]
+print(rearrange_the_array(nums))
+
+#longest consecutive sequences
+# def longest_consecutive_sequences(nums):
+#     # stored=[]
+#     # for i in range(0,len(nums)):
+#     #     stored.append(nums[i])
+#     # return stored
+    
+#     # for i in range(0,len(nums)):
+#     for num in nums:
+#         print(num)
+# nums=[1,99,101,98,2,5,3,100,1,1]
+# # print(longest_consecutive_sequences(nums))
+# longest_consecutive_sequences(nums)
+
+# longest consecutive sequences
+def longest_consecutive_sequences(nums):
+    count=0
+    max_count=0
+    for i in range(0,len(nums)):
+        num=nums[i]
+        count=1
+        while num+1 in nums:
+            count+=1
+            max_count=max(max_count,count)
+            num=num+1
+    return max_count    
+
+nums=[1,99,101,98,2,5,3,100,1,1]
+print(longest_consecutive_sequences(nums))
+    
+
+def longest_consecutive_sequences(nums):
+            if not nums:
+                return 0
+            if len(nums)==1:
+                return 1
+            max_count=1
+            for i in range(0,len(nums)):
+                num=nums[i]
+                count=1
+                while num+1 in nums:
+                    num+=1
+                    count+=1
+                    max_count=max(max_count,count)
+            return max_count
+nums=[1,99,101,98,2,5,3,100,1,1]
+print(longest_consecutive_sequences(nums))
+
+
+# num1=10
+# num2=20
+# res=sum([num1,num2])
+# print(res)
+
+
+def longest_consecutive_sequences(nums):
+    num_set=set(nums)
+    longest=0
+    
+    for num in num_set:
+        if num-1 not in num_set:
+            curr=num
+            count=1
+        
+        while curr+1 in num_set:
+            curr+=1
+            count+=1
+        longest=max(longest,count)
+    return longest
+nums=[1,99,101,98,2,5,3,100,1,1]
+print(longest_consecutive_sequences(nums))
+
+matrix=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+]
+# print(matrix[0][0])
+# print(matrix[0][2])
+# print(matrix[1][2])
+# print(matrix[2][2])
+
+# for row in matrix:
+#     print(row)
+    
+# print(matrix[1])
+
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        print(matrix[i][j],end=" ")
+    print()
+    
+#even number array
+# z=int(input().strip())
+# arr_values=list(map(int,input().split()))
+# for nums in arr_values:
+#     # print(nums,end=" ")
+#     if nums%2==0:
+#         print(nums,end=" ")
+# print()
+
+def find_largest_even(s):
+    last_digit=s.rfind('2')
+    if last_digit==-1:
+        return ""
+    return s[:last_digit+1]
+    # print(last_digit)
+s='12211'
+res=find_largest_even(s)
+print(res)
+
+
+matrix = [
+    [2,-2,3],
+    [5,6,7],
+    [8,9,10],
+    [5,6,7],
+]
+# print(matrix[0][1])
+print(matrix[0])
+print(matrix[0][2])
+print(matrix[2][0])
+row=len(matrix)
+col=len(matrix[2])
+print(row)
+print(col)
+
+for i in range(0,row):
+    for j in range(0,col):
+        print(matrix[i][j],end=" ")   
+    print()
+
+matrix = [
+    [2,2,3],
+    [5,6,7],
+    [8,9,9],
+    [5,6,7],
+]
+row=len(matrix)
+col=len(matrix[0])
+for i in range(0,row):
+    for j in range(0,col):
+        if j>=i:
+            print(matrix[i][j],end=" ")
+        else:
+            print("*",end=" ")
+    print()
+    
+matrix = [
+    [2,2,3],
+    [5,6,7],
+    [8,9,9],
+]
+row=len(matrix)
+col=len(matrix[0])
+for i in range(0,row):
+    for j in range(0,col):
+        if i>=j:
+            print(matrix[i][j],end=" ")
+        else:
+            print("*",end=" ")
+    print()
+    
+matrix = [
+    [2,2,3],
+    [5,6,7],
+]
+row=len(matrix)
+col=len(matrix[0])
+result=[[0]*row for _ in range(col)]
+for i in range(0,row):
+    for j in range(0,col):
+        result[j][i]=matrix[i][j]
+    print(result)  
+
+
+def mark_infinity(matrix,r,c):
+    row=len(matrix)
+    col=len(matrix[0])
+    if matrix[r][c]==0:
+        for j in range(0,col):
+            if matrix[r][j]!=0:
+                matrix[r][j]=float('inf')
+        for i in range(0,row):
+            if matrix[i][c]!=0:
+                matrix[i][c]=float('inf')
+        
+        for i in range(0,row):
+            for j in range(0,col):
+                if matrix[i][j]==float('inf'):
+                    matrix[i][j]=0
+                            
+    return matrix
+matrix=[
+    [1,2,0],
+    [3,4,5],
+    [6,7,8]
+]
+print(mark_infinity(matrix,0,2))
+
+#Rotate array by 90°
+def rotate_array_90(matrix):
+    n=len(matrix)
+    result=[[0 for _ in range(n)]for _ in range(n)]
+    for i in range(0,n):
+        for j in range(0,n):
+            result[j][(n-1)-i]=matrix[i][j]
+    return result
+matrix=[
+    [1,2,0],
+    [3,4,5],
+    [6,7,8]
+]
+result=rotate_array_90(matrix)
+print(result)
+
+#Functions
+def print_order(name,chaitype):
+    print(f"{name} ordered {chaitype} chai")
+print_order(name="Ram",chaitype="Tulsi")
+print_order("Jaanu","Ginger")
+
+def fetch_sales():
+    print("sales order fetching")
+def filter_valid_order():
+    print("fetching filter valid order")
+def summarize_data():
+    print("Summarize data")
+    
+def generate_report():
+    fetch_sales()
+    filter_valid_order()
+    summarize_data()
+generate_report()
+
+def calculate_bill(cups,cups_per_price):
+    return cups*cups_per_price
+print(calculate_bill(3,20))
+
+
+#named scope and global scope
+def chai_counter():
+    chai_order="lemon"
+    def print_order():
+        chai_order="Ginger"
+        print("Inner",chai_order)
+    print("Outer",chai_order)
+    print_order()
+chai_order="tulsi"
+chai_counter()
+print("Global",chai_order)
+
+x=10
+def my_fun():
+    print(x)
+my_fun()
+
+x=20
+def my_fun():
+    global x
+    x=30
+    return x
+res=my_fun()
+print(res)
+
+#nonlocal scope function inside one more function
+def outer():
+    x=90
+    
+    def inner():
+        nonlocal x
+        x=100
+        print(x)
+    inner()
+    print(x)
+outer()
+
+#handling argument in function
+chai_type="Tulsi"
+def prepare_chai(Order):
+    chai_type="green tea"
+    print("preparing",Order)
+prepare_chai(chai_type)
+print(chai_type)
+    
+
+def edit_chai(cup):
+    cup[1]=23
+    return cup
+chai=[1,2,3]   
+res=edit_chai(chai)
+print(res)
+
+def special_chai(*ingredients,**extras):
+    print(ingredients)
+    print(extras)
+
+special_chai("Cinnamon","Cardamom",sweetener="honey",foam="yes")
+
+def chai_order(order=[]):
+    order.append("masala")
+    print(order)
+
+chai_order()
+chai_order()
+chai_order()
+
+def chai_order(order=None):
+    if order is None:
+        order=[]
+    order.append("masala")
+    return order
+res=chai_order()
+print(res) 
+
+def spiral_order(matrix):
+    l=0
+    t=0
+    r=len(matrix[0])-1
+    b=len(matrix)-1
+    result=[]
+    while l <= r and t <= b:
+        for i in range(l,r+1):
+            result.append(matrix[t][i])
+        t+=1
+        for i in range(t,b+1):
+            result.append(matrix[i][r])
+        r-=1
+        if t<=b:
+            for i in range(r,l-1,-1):
+                result.append(matrix[b][i])
+            b-=1
+        if l<=r:
+            for i in range(b,t-1,-1):
+                result.append(matrix[i][l])
+            l+=1
+    return result
+matrix=[
+    [1,2,3,4,5,6],
+    [20,21,22,23,24,7],
+    [19,32,33,34,25,8],
+    [18,31,36,35,26,9],
+    [17,30,29,28,27,10],
+    [16,15,14,13,12,11]
+]
+print(spiral_order(matrix))
+
+res=[]
+def duplicate(nums):
+    for i in range(0,len(nums)):
+        if nums[i]==nums[i-1]:
+            continue
+        else:
+            res.append(nums[i])
+    return res
+    
+nums=[1,2,2,3,4,5,5,6]
+print(duplicate(nums))
+
+def print_char(s):
+    s1=s.lower()
+    for ch in s1:
+        print(ch,end=" ")
+    
+# s="this is the Programming language"
+# s=input().strip()
+print_char(s)
+print()
+
+s="sachin"
+[print(ch,end=" ") for ch in s]
+
+
+
+
+
+
+    
+    
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
