@@ -805,8 +805,53 @@ print(res)
 check=lambda x: "even" if x%2==0 else "odd"
 print(check(2))
 
+s="Python"
+print("Pyth" in s)
 
+print(min('Hello')) #lowest unicode value
+print(max('Hello'))
 
+print(sorted('hello'))
+num=[1,2,3,5,4,7,6]
+num.sort()
+print(num)
+print(sorted(num))
+
+for c1,c2 in zip("abc","ABC"):
+    print(c1,c2)
+
+# Reverse a string
+s="paper"
+print(s[::-1])
+
+s="hello world"
+print(s.split())
+print(s.split("o"))
+print(len(s.split()))
+
+def is_palindrome(s):
+    s=s.lower().replace(" ","")
+    return s==s[::-1]
+s="madam"
+print(is_palindrome(s))
+
+s="hello world python"
+print(s.split(" ",1)) #it will split at the first space and return the list
+
+print(s.partition(" ")) #return the tuple and always 3 parts
+
+print(bool(" "))
+print(bool("")) 
+
+print(0.1+0.2,0.3)
+print(0.1+0.2==0.3)
+
+from decimal import Decimal
+print(Decimal(.01)+Decimal(0.2)==0.3)
+
+import math
+print(math.isclose(0.1+0.2,0.3))
+print(round(0.1+0.2,1)==0.3)
 
 
 
