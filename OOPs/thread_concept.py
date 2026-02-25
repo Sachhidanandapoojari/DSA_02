@@ -5,16 +5,25 @@
 # t1.start()
 # t1.join()
 
+# import threading
+# import time
+# def task():
+#     time.sleep(2)
+#     print("Task completed")
+# t1=threading.Thread(target=task)
+# t1.start()
+# t1.join()  # Main thread waits here
+# print("program finished")
+
 import threading
 import time
 def task():
-    time.sleep(2)
+    time.sleep(10)
     print("Task completed")
 t1=threading.Thread(target=task)
 t1.start()
-t1.join()  # Main thread waits here
+t1.join() #main thread waits here
 print("program finished")
-
 
 def back_ground_task():
     print("backgound task running")
@@ -27,14 +36,24 @@ print("main thread executing")
 
 
 # from multithreading import threading
-from multiprocessing import Process
+# from multiprocessing import Process
 
+# def task():
+#     print("process running")
+    
+# p=Process(target=task)
+# p.start()
+# p.join()
+
+from multiprocessing import Process
 def task():
     print("process running")
     
 p=Process(target=task)
 p.start()
 p.join()
+
+
 
 # Reverse string
 s1="sachin"
@@ -183,6 +202,15 @@ def fib(n):
 res=fib(3)
 print(res)
     
+# from functools import lru_cache
+# @lru_cache
+# def fib(n):
+#     if n==0 or n==1:
+#         return n
+#     return fib(n-1)+fib(n-2)
+# print(fib(10))
+
+#fib series
 from functools import lru_cache
 @lru_cache
 def fib(n):
@@ -192,16 +220,25 @@ def fib(n):
 print(fib(10))
 
 
-def Is_Prime(n):
+# def Is_Prime(n):
+#     if n<=1:
+#         return False
+#     for i in range(2,n):
+#         if n%i==0:
+#             return False
+#     return True
+# res=Is_Prime(7)
+# print(res)
+
+def is_prime(n):
     if n<=1:
         return False
     for i in range(2,n):
         if n%i==0:
             return False
     return True
-res=Is_Prime(7)
+res=is_prime(7)
 print(res)
-
 import json
 
 data={
