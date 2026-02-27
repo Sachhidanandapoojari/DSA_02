@@ -853,6 +853,283 @@ import math
 print(math.isclose(0.1+0.2,0.3))
 print(round(0.1+0.2,1)==0.3)
 
+import copy
+original=[1,2,3,4]
+shallow=copy.copy(original)
+print(original == shallow)
+print(original is shallow)
+
+orig=[1,2,3,4]
+shall=copy.copy(orig)
+# print(orig == shall)
+shall.append(5)
+print(orig)
+print(shall)
+print(orig==shall)
+print(orig is shall)  #in shallow it normal does not change the list of original and if it nested it will change
+
+
+# orig=[1,2,3,4,[5,6]]
+# shall=copy.copy(orig)
+# shall[0]=99
+# shall[4].append(9)
+# print(orig)
+
+
+# #deep copy
+# import copy
+# orig=[1,2,3,4,5]
+# deep=copy.deepcopy(orig)
+# print(orig == deep)
+# print(orig is deep)
+
+orig=[1,2,3,4,5]
+deep=copy.deepcopy(orig)
+deep.append(9)
+print(orig == deep)
+
+orig=[1,2,3,4,5,[8,9]]
+shall=copy.copy(orig)
+shall[5].append(10)
+print(orig)
+print(shall)
+
+orig=[1,2,3,4,5,[8,9]]
+deep=copy.deepcopy(orig)
+deep[5].append(10)
+print(orig)
+print(deep)
+
+# Remove duplicates keeping order
+lst = [1, 2, 2, 3, 1, 4, 3, 5]
+lst.sort()
+unique=[]
+for i in range(len(lst)):
+    if lst[i]!=lst[i-1]:
+        unique.append(lst[i])
+print(unique)
+
+lst = [1, 2, 2, 3, 1, 4, 3, 5]
+unique=[]
+for num in lst:
+    if num not in unique:
+        unique.append(num)
+print(unique)
+
+# Remove duplicates keeping order use the form.dict to preserve the order
+lst = [1, 2, 2, 3, 1, 4, 3, 5]
+print(list(dict.fromkeys(lst)))
+
+# Using set (does NOT preserve order)
+lst = [1, 2, 2, 3, 1, 4, 3, 5]
+print(list(set(lst)))
+
+nested = [[1, 2], [3, 4], [5, 6]]
+res=[x for sublist in nested for x in sublist]
+print(res)
+
+def flatten(lst):
+    res=[]
+    for item in lst:
+        if isinstance(item,list):
+            res.extend(flatten(item))
+        else:
+            res.append(item)
+    return res    
+
+print(flatten([1, [2, [3, [4]], 5]]))
+
+def find_palindrome(lst):
+    n=len(lst)
+    l=0;r=n-1
+    while l<r:
+        if lst[l]!=lst[r]:
+            return False
+        l+=1
+        r-=1
+    return True       
+lst=[1,2,3,2,1]
+print(find_palindrome(lst))
+
+#rotate array
+def rotate_array(lst,k):
+    n=len(lst)
+    rotation=k%n
+    
+    for _ in range(0,rotation):
+        e=lst.pop()
+        lst.insert(0,e)
+    return lst    
+lst=([1,2,3,2,1,7,8])
+k=2
+print(rotate_array(lst,k))
+
+lst = [1, 2, 2, 3, 1, 4]
+print(list(dict.fromkeys(lst)))
+
+lst = [0, 1, 2, 3, 4]
+print(lst[10:30])
+print(lst[3:1])
+
+even=[x for x in range(10) if x%2==0]
+print(even)
+
+
+even=[x if x%2==0 else -x for x in range(10)]
+print(even)   
+
+lst = [[0]*3]*3
+print(lst)
+lst[0][0]=1
+print(lst)
+
+lst=[[0]*3]*3
+lst=[[0]*3 for _ in range(3)]
+lst[0][0]=1
+print(lst)
+
+
+lst = [1, 2, 3, 4, 5]
+for i in lst:
+    lst.remove(i)
+print(lst)
+
+if []:
+    print('yes')
+if [0]:
+    print('yes')
+
+# 5. List unpacking
+a,b,c=[1,2,3]
+print(a)
+print(b)
+# a, b = [1, 2, 3]
+
+# 6. Concatenation vs extend
+num=[1,2,3,4]
+num=num+[5,6]
+print(num)
+
+num=[1,2,3,4]
+num+=[23]
+print(num)
+
+lst = [0, 1, 2, 3, 4]
+print(lst[3:1])
+print(lst[1:3])
+print(lst[:3])
+print(lst[1:2])
+
+#second largest
+def second_largest(arr):
+    max=arr[0]
+    sec_max=float('-inf')
+    for num in arr:
+        if num>max:
+            sec_max=max
+            max=num
+        elif num>sec_max and num!=max:
+            max=sec_max
+    return sec_max
+lst = [0, 1, 2, 3, 4]
+print(second_largest(lst))
+
+#second largest
+def second_largest(arr):
+    unique=list(set(arr))
+    unique.sort()
+    return unique[-2]    
+lst = [0, 1, 2, 3, 4]
+print(second_largest(lst))
+
+import sys
+lst=[]
+print(sys.getsizeof(lst))
+lst = [1, 2, 3, 4, 5]
+print(sys.getsizeof(lst))
+
+import array
+int_array=array.array('i',[1,2,3,4,5,6])
+print(int_array)
+int_array.append(9)
+print(int_array)
+
+# Sort by last character of name
+names = ["banana", "apple", "cherry", "kiwi"]
+names.sort(key=lambda x:x[-1])
+print(names)
+
+# Sort strings case-insensitively
+names = ["Banana", "apple", "Cherry"]
+names.sort()
+names.sort(key=str.lower)
+names.sort(key=lambda x: x.lower())
+print(names)
+
+data = [(1, 'b'), (2, 'a'), (1, 'a'), (2, 'b')]
+data.sort(key=lambda x: x[0])
+print(data)
+
+# List as Stack and Queue LIFO 
+stack=[]
+stack.append("a") #both used O(1)
+stack.append("b")
+stack.append("c")
+print(stack)
+stack.pop()
+stack.pop()
+print(stack)
+
+# from collections import deque
+# queue=deque
+# queue.append("a")
+# queue.append("b")
+# queue.popleft()
+
+#FIFO
+queue=[]
+queue.append("a")
+queue.append("b")
+queue.pop(0)
+print(queue)
+
+
+a,*_,b=[1,2,3,4,5]
+print(a,b)
+
+#unpack in pair
+pair=[(1,'a'),(2,'b'),(3,'c')]
+for num,ch in pair:
+    print(num,ch)
+    
+#move zeros
+def move_zeros(lst):
+    non_zeros=[x for x in lst if x!=0]
+    zeros=[0]*(len(lst)-len(non_zeros))
+    return non_zeros+zeros
+    
+lst=[1,2,3,4,0,5,0,6]
+print(move_zeros(lst))
+
+
+
+
+
+
+
+
+        
+    
+
+
+
+
+
+
+
+
+
+
 
 
 
