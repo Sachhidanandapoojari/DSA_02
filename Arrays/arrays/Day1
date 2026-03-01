@@ -258,7 +258,6 @@ print(ans)
 # res=selection_sort([3,2,5,6,7,4,1])
 # print(res)
 
-
         
             
 
@@ -556,6 +555,12 @@ print()
 #     fun(x,n-1)
     
 # fun(15,3)
+def fun(x,n):
+    if n==0:
+        return
+    print(x)
+    fun(x,n-1)
+fun(15,3)
 
 # #head recursion
 # def fun(i,n):
